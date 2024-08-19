@@ -1,0 +1,22 @@
+<div *ngIf="editedTask">
+  <h2>Edit Task</h2>
+  <label>Title: <input [(ngModel)]="editedTask.title"></label>
+  <label>Description: <textarea [(ngModel)]="editedTask.description"></textarea></label>
+  <label>Status:
+    <select [(ngModel)]="editedTask.status">
+      <option value="Incomplete">Incomplete</option>
+      <option value="In Progress">In Progress</option>
+      <option value="Completed">Completed</option>
+    </select>
+  </label>
+  <label>Priority:
+    <select [(ngModel)]="editedTask.priority">
+      <option value="Low">Low</option>
+      <option value="Medium">Medium</option>
+      <option value="High">High</option>
+    </select>
+  </label>
+  <label>Due Date: <input [(ngModel)]="editedTask.dueDate" type="date" [value]="editedTask.dueDate | date:'yyyy-MM-dd'"></label>
+  <button (click)="saveTask()">Save</button>
+  <button (click)="cancelEdit()">Cancel</button>
+</div>
